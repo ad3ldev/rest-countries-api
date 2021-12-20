@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/rest-countries-api/static/js/main.f8c4e3a2.js",
+    "static/js/787.cf77bcf9.chunk.js": "/rest-countries-api/static/js/787.cf77bcf9.chunk.js",
+    "index.html": "/rest-countries-api/index.html",
+    "main.f8c4e3a2.js.map": "/rest-countries-api/static/js/main.f8c4e3a2.js.map",
+    "787.cf77bcf9.chunk.js.map": "/rest-countries-api/static/js/787.cf77bcf9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f8c4e3a2.js"
+  ]
+}
