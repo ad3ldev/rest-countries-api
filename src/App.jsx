@@ -39,7 +39,9 @@ function App() {
 						element={
 							!loading && (
 								<Countries
-									countries={countries ?? "Not Ready"}
+									countries={
+										countries ? countries : "Not Ready"
+									}
 								/>
 							)
 						}
