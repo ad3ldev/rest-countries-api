@@ -9,7 +9,7 @@ const Countries = ({ countries }) => {
 				return (
 					<Link
 						key={country.numericCode}
-						to={`/country/${country.alpha3Code}`}
+						to={`./country/${country.alpha3Code}`}
 					>
 						<Card
 							flags={country.flags}

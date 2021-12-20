@@ -35,7 +35,7 @@ function App() {
 				<GlobalStyle />
 				<Routes>
 					<Route
-						path="/"
+						path="/rest-countries-api"
 						element={
 							!loading && (
 								<Countries
@@ -46,7 +46,10 @@ function App() {
 							)
 						}
 					/>
-					<Route path="/country/:alpha3Code" element={<Country />} />
+					<Route
+						path="/rest-countries-api/country/:alpha3Code"
+						element={<Country />}
+					/>
 				</Routes>
 			</ThemeProvider>
 		</BrowserRouter>

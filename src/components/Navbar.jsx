@@ -4,7 +4,7 @@ import StyledNavbar from "./styled/Navbar.styled";
 const Navbar = () => {
 	return (
 		<StyledNavbar>
-			<Link to="/">
+			<Link to="/rest-countries-api">
 				<h1>Where in the world?</h1>
 			</Link>
 			<div>
