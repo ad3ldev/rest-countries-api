@@ -1,6 +1,6 @@
 import StyledButton from "./styled/Button.styled";
-const button = () => {
-	return <StyledButton>Do you know da wae?</StyledButton>;
+const button = ({ name }) => {
+	return <StyledButton>{name}</StyledButton>;
 };
 
 export default button;

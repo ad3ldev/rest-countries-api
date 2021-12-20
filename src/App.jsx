@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
-import Button from "./components/Button";
+import Card from "./components/Card";
+import { useEffect, useState } from "react";
+import StyledApp from "./styled/App.styled";
 import GlobalStyle from "./styled/globalStyle";
 import Navbar from "./components/Navbar";
 
@@ -20,12 +22,35 @@ const themeDark = {
 let light = true;
 
 function App() {
+	const [countries, setCountries] = useState([]);
+	useEffect(() => {
+		fetch("https://restcountries.com/v2/all")
+			.then((response) => {
+				return response.json();
+			})
+			.then((data) => {
+				setCountries(data);
+			});
+	}, []);
 	return (
 		<>
 			<ThemeProvider theme={light ? themeLight : themeDark}>
 				<GlobalStyle />
 				<Navbar />
-				<Button />
+				<StyledApp>
+					{countries.map((country) => {
+						return (
+							<Card
+								key={country.numericCode}
+								flags={country.flags}
+								name={country.name}
+								population={country.population}
+								region={country.region}
+								capital={country.capital}
+							/>
+						);
+					})}
+				</StyledApp>
 			</ThemeProvider>
 		</>
 	);
