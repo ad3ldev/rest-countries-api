@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     *{
         color: ${({ theme }) => theme.text};
         font-family: "Nunito Sans", sans-serif;
+        text-decoration: none;
     }
     body {
         padding: 0;

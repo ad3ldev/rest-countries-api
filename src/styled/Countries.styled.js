@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledApp = styled.div`
+const StyledCountries = styled.div`
 	display: grid;
 	margin: 3rem 1rem;
 	gap: 3rem 1rem;
@@ -8,4 +8,4 @@ const StyledApp = styled.div`
 	grid-template-columns: repeat(4, 1fr);
 `;
 
-export default StyledApp;
+export default StyledCountries;

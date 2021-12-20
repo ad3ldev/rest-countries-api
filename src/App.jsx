@@ -1,9 +1,10 @@
 import { ThemeProvider } from "styled-components";
-import Card from "./components/Card";
-import { useEffect, useState } from "react";
-import StyledApp from "./styled/App.styled";
+import Countries from "./Countries";
 import GlobalStyle from "./styled/globalStyle";
 import Navbar from "./components/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Country from "./Country";
+import useFetch from "./useFetch";
 
 const themeLight = {
 	text: "hsl(200, 15%, 8%)",
@@ -22,37 +23,31 @@ const themeDark = {
 let light = true;
 
 function App() {
-	const [countries, setCountries] = useState([]);
-	useEffect(() => {
-		fetch("https://restcountries.com/v2/all")
-			.then((response) => {
-				return response.json();
-			})
-			.then((data) => {
-				setCountries(data);
-			});
-	}, []);
+	const {
+		error,
+		loading,
+		data: countries,
+	} = useFetch("https://restcountries.com/v2/all");
 	return (
-		<>
+		<BrowserRouter>
 			<ThemeProvider theme={light ? themeLight : themeDark}>
-				<GlobalStyle />
 				<Navbar />
-				<StyledApp>
-					{countries.map((country) => {
-						return (
-							<Card
-								key={country.numericCode}
-								flags={country.flags}
-								name={country.name}
-								population={country.population}
-								region={country.region}
-								capital={country.capital}
-							/>
-						);
-					})}
-				</StyledApp>
+				<GlobalStyle />
+				<Routes>
+					<Route
+						path="/"
+						element={
+							!loading && (
+								<Countries
+									countries={countries ?? "Not Ready"}
+								/>
+							)
+						}
+					/>
+					<Route path="/country/:alpha3Code" element={<Country />} />
+				</Routes>
 			</ThemeProvider>
-		</>
+		</BrowserRouter>
 	);
 }
 
