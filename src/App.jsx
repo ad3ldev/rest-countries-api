@@ -22,6 +22,8 @@ const themeDark = {
 
 let light = true;
 
+// TODO: Make the fetch once and then pass down props
+
 function App() {
 	const {
 		error,
