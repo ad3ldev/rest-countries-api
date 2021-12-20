@@ -17,6 +17,10 @@ const StyledCard = styled.div`
 		width: 20rem;
 		aspect-ratio: 16/9;
 	}
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		transform: scale(1.05);
+	}
 `;
 
 export default StyledCard;
