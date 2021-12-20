@@ -16,6 +16,7 @@ const Country = () => {
 					alt={`Flag of ${country.name}`}
 				/>
 			)}
+			<h2>{country.name}</h2>
 		</div>
 	);
 };
