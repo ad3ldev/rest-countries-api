@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Country from "./Country";
 import useFetch from "./useFetch";
+import { useState } from "react";
 
 const themeLight = {
 	text: "hsl(200, 15%, 8%)",
@@ -20,8 +21,6 @@ const themeDark = {
 	bg: "hsl(207, 26%, 17%)",
 };
 
-let light = true;
-
 // TODO: Make the fetch once and then pass down props
 
 function App() {
@@ -30,10 +29,11 @@ function App() {
 		loading,
 		data: countries,
 	} = useFetch("https://restcountries.com/v2/all");
+	const [theme, setTheme] = useState(true);
 	return (
 		<BrowserRouter>
-			<ThemeProvider theme={light ? themeLight : themeDark}>
-				<Navbar />
+			<ThemeProvider theme={theme ? themeLight : themeDark}>
+				<Navbar theme={theme} setTheme={setTheme} />
 				<GlobalStyle />
 				<Routes>
 					<Route
