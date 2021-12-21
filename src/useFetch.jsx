@@ -16,9 +16,14 @@ const useFetch = (url) => {
 				return res.json();
 			})
 			.then((data) => {
-				setLoading(false);
-				setData(data);
-				setError(null);
+				if (data.state == "404") {
+					setLoading(false);
+					throw Error("could not fetch the data for that resource");
+				} else {
+					setLoading(false);
+					setData(data);
+					setError(null);
+				}
 			})
 			.catch((err) => {
 				if (err.name === "AbortError") {

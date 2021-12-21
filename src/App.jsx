@@ -6,7 +6,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Country from "./Country";
 import useFetch from "./useFetch";
 import { useState } from "react";
-import SearchBar from "./components/SearchBar";
 
 const themeLight = {
 	text: "hsl(200, 15%, 8%)",
@@ -33,7 +32,6 @@ function App() {
 			<ThemeProvider theme={theme ? themeLight : themeDark}>
 				<Navbar theme={theme} setTheme={setTheme} />
 				<GlobalStyle />
-				<SearchBar url={url} setURL={setURL} />
 				<Routes>
 					<Route
 						path="/rest-countries-api"
@@ -43,6 +41,8 @@ function App() {
 									countries={
 										countries ? countries : "Not Ready"
 									}
+									url={url}
+									setURL={setURL}
 								/>
 							)
 						}

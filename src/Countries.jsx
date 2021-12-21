@@ -1,12 +1,14 @@
 import Card from "./components/Card";
 import StyledCountries from "./styled/Countries.styled";
 import { Link } from "react-router-dom";
+import SearchBar from "./components/SearchBar";
 
-const Countries = ({ countries }) => {
+const Countries = ({ countries, url, setURL }) => {
 	return (
 		<>
+			<SearchBar url={url} setURL={setURL} />
 			<StyledCountries>
-				{countries.map((country) => {
+				{countries?.map((country) => {
 					return (
 						<Link
 							key={country.numericCode}
