@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Country from "./Country";
 import useFetch from "./useFetch";
 import { useState } from "react";
+import SearchBar from "./components/SearchBar";
 
 const themeLight = {
 	text: "hsl(200, 15%, 8%)",
@@ -21,20 +22,18 @@ const themeDark = {
 	bg: "hsl(207, 26%, 17%)",
 };
 
-// TODO: Make the fetch once and then pass down props
+// TODO: Search breaking
 
 function App() {
-	const {
-		error,
-		loading,
-		data: countries,
-	} = useFetch("https://restcountries.com/v2/all");
+	const [url, setURL] = useState("https://restcountries.com/v2/all");
 	const [theme, setTheme] = useState(true);
+	const { error, loading, data: countries } = useFetch(url);
 	return (
 		<BrowserRouter>
 			<ThemeProvider theme={theme ? themeLight : themeDark}>
 				<Navbar theme={theme} setTheme={setTheme} />
 				<GlobalStyle />
+				<SearchBar url={url} setURL={setURL} />
 				<Routes>
 					<Route
 						path="/rest-countries-api"

@@ -1,19 +1,29 @@
-import { useState } from "react";
 import StyledSearchBar from "./styled/SearchBar.styled";
+import { RiSearchLine } from "react-icons/ri";
 
-const SearchBar = () => {
-	const [query, setQuery] = useState("");
+const SearchBar = ({ url, setURL }) => {
 	return (
 		<StyledSearchBar>
 			<form action="">
-				<label htmlFor="">
-					Search:
+				<div>
+					<label htmlFor="">
+						<RiSearchLine />
+					</label>
 					<input
 						type="text"
 						placeholder="Search for a country..."
-						onChange={(event) => setQuery(event.target.value)}
+						onChange={(event) => {
+							if (event.target.value === "") {
+								setURL("https://restcountries.com/v2/all");
+							} else {
+								setURL(
+									`https://restcountries.com/v2/name/${event.target.value}`,
+								);
+							}
+							console.log(url);
+						}}
 					/>
-				</label>
+				</div>
 			</form>
 			<select>
 				<option
