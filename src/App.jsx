@@ -32,26 +32,30 @@ function App() {
 			<ThemeProvider theme={theme ? themeLight : themeDark}>
 				<Navbar theme={theme} setTheme={setTheme} />
 				<GlobalStyle />
-				<Routes>
-					<Route
-						path="/rest-countries-api"
-						element={
-							!loading && (
-								<Countries
-									countries={
-										countries ? countries : "Not Ready"
-									}
-									url={url}
-									setURL={setURL}
-								/>
-							)
-						}
-					/>
-					<Route
-						path="/rest-countries-api/country/:alpha3Code"
-						element={<Country />}
-					/>
-				</Routes>
+				{error && <div>Error</div>}
+				{loading && <h1>Loading...</h1>}
+				{!error && !loading && (
+					<Routes>
+						<Route
+							path="/rest-countries-api"
+							element={
+								!loading && (
+									<Countries
+										countries={
+											countries ? countries : "Not Ready"
+										}
+										url={url}
+										setURL={setURL}
+									/>
+								)
+							}
+						/>
+						<Route
+							path="/rest-countries-api/country/:alpha3Code"
+							element={<Country />}
+						/>
+					</Routes>
+				)}
 			</ThemeProvider>
 		</BrowserRouter>
 	);

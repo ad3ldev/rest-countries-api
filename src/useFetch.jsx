@@ -16,7 +16,7 @@ const useFetch = (url) => {
 				return res.json();
 			})
 			.then((data) => {
-				if (data.state == "404") {
+				if (data.state === "404") {
 					setLoading(false);
 					throw Error("could not fetch the data for that resource");
 				} else {

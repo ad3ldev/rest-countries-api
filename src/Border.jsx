@@ -10,8 +10,9 @@ const Border = ({ code }) => {
 	} = useFetch(`https://restcountries.com/v2/alpha/${code}`);
 	return (
 		<>
+			{error && <Button>Not Found</Button>}
 			{loading && <p>loading..</p>}
-			{!loading && (
+			{!error && !loading && (
 				<Link
 					key={country.numericCode}
 					to={`/rest-countries-api/country/${country.alpha3Code}`}
