@@ -73,7 +73,9 @@ const Country = () => {
 							<div className="borders">
 								<p>Border Countries: </p>
 								{country.borders?.map((border) => {
-									return <Border code={border} />;
+									return (
+										<Border key={border} code={border} />
+									);
 								})}
 							</div>
 						</div>
