@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import { useState, useEffect } from "react";
 
-const Countries = ({ countries }) => {
+const Countries = ({ countries, setURL }) => {
 	const [result, setResult] = useState(countries);
 	useEffect(() => {
 		setResult(countries);
@@ -12,7 +12,11 @@ const Countries = ({ countries }) => {
 	}, [countries]);
 	return (
 		<>
-			<SearchBar countries={countries} setResult={setResult} />
+			<SearchBar
+				countries={countries}
+				setResult={setResult}
+				setURL={setURL}
+			/>
 			<StyledCountries>
 				{result?.map((country) => {
 					return (
@@ -23,7 +27,9 @@ const Countries = ({ countries }) => {
 							<Card
 								flags={country.flags}
 								name={country.name}
-								population={country.population}
+								population={country.population.toLocaleString(
+									"en-US",
+								)}
 								region={country.region}
 								capital={country.capital}
 							/>

@@ -1,7 +1,8 @@
 import StyledSearchBar from "./styled/SearchBar.styled";
 import { RiSearchLine } from "react-icons/ri";
+import Select from "./Select";
 
-const SearchBar = ({ countries, setResult }) => {
+const SearchBar = ({ countries, setResult, setURL }) => {
 	function search(name) {
 		let result = [];
 		countries.forEach((country) => {
@@ -30,16 +31,7 @@ const SearchBar = ({ countries, setResult }) => {
 					/>
 				</div>
 			</form>
-			<select>
-				<option
-					defaultValue={`World`}
-					placeholder="Select a region"
-				></option>
-				<option value="grapefruit">Grapefruit</option>
-				<option value="lime">Lime</option>
-				<option value="coconut">Coconut</option>
-				<option value="mango">Mango</option>
-			</select>
+			<Select setURL={setURL} />
 		</StyledSearchBar>
 	);
 };

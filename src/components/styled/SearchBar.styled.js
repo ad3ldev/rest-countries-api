@@ -17,7 +17,6 @@ const StyledSearchBar = styled.div`
 				padding: 0 1rem;
 			}
 		}
-
 		input {
 			border: none;
 			height: 2.25rem;
@@ -27,10 +26,6 @@ const StyledSearchBar = styled.div`
 			&:focus {
 				outline: none;
 			}
-		}
-		select {
-			background: ${({ theme }) => theme.elements};
-			color: ${({ theme }) => theme.text};
 		}
 	}
 `;
