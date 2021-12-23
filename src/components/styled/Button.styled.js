@@ -7,6 +7,14 @@ const StyledButton = styled.button`
 	margin: 1rem;
 	border-radius: 8px;
 	border: none;
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		transform: scale(1.05);
+	}
+	&:active {
+		transform: scale(0.9);
+	}
+	cursor: pointer;
 `;
 
 export default StyledButton;

@@ -5,10 +5,21 @@ const Card = ({ flags, name, population, region, capital }) => {
 		<StyledCard>
 			<img src={flags.png} alt={`Flag of ${name}`} />
 			<div>
-				<h2>{name}</h2>
-				<p>{`Population: ${population}`}</p>
-				<p>{`Region: ${region}`}</p>
-				<p>{`Capital: ${capital}`}</p>
+				<h2>
+					<span>{name}</span>
+				</h2>
+				<p>
+					<span>Population: </span>
+					{population}
+				</p>
+				<p>
+					<span>Region: </span>
+					{region}
+				</p>
+				<p>
+					<span>Capital: </span>
+					{capital}
+				</p>
 			</div>
 		</StyledCard>
 	);

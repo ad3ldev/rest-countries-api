@@ -21,8 +21,6 @@ const themeDark = {
 	bg: "hsl(207, 26%, 17%)",
 };
 
-// TODO: Need to reverese the search
-
 function App() {
 	const [theme, setTheme] = useState(true);
 	const [url, setURL] = useState("https://restcountries.com/v2/all");
