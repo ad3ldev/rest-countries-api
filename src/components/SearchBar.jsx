@@ -1,16 +1,15 @@
 import StyledSearchBar from "./styled/SearchBar.styled";
 import { RiSearchLine } from "react-icons/ri";
 
-const SearchBar = ({ countries, setCountries }) => {
+const SearchBar = ({ countries, setResult }) => {
 	function search(name) {
-		console.log(name);
 		let result = [];
 		countries.forEach((country) => {
-			if (country.name.toLowerCase().includes(name)) {
+			if (country.name.toLowerCase().includes(name.toLowerCase())) {
 				result.push(country);
 			}
 		});
-		return result;
+		setResult(result);
 	}
 	return (
 		<StyledSearchBar>
@@ -25,7 +24,7 @@ const SearchBar = ({ countries, setCountries }) => {
 						onChange={(event) => {
 							if (event.target.value === "") {
 							} else {
-								setCountries(search(event.target.value));
+								search(event.target.value);
 							}
 						}}
 					/>

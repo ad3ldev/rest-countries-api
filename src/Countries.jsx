@@ -12,7 +12,7 @@ const Countries = ({ countries }) => {
 	}, [countries]);
 	return (
 		<>
-			<SearchBar countries={result} setCountries={setResult} />
+			<SearchBar countries={countries} setResult={setResult} />
 			<StyledCountries>
 				{result?.map((country) => {
 					return (

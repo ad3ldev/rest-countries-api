@@ -21,7 +21,7 @@ const themeDark = {
 	bg: "hsl(207, 26%, 17%)",
 };
 
-// TODO: Search breaking
+// TODO: Need to reverese the search
 
 function App() {
 	const [theme, setTheme] = useState(true);
