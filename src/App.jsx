@@ -24,9 +24,12 @@ const themeDark = {
 // TODO: Search breaking
 
 function App() {
-	const [url, setURL] = useState("https://restcountries.com/v2/all");
 	const [theme, setTheme] = useState(true);
-	const { error, loading, data: countries } = useFetch(url);
+	const {
+		error,
+		loading,
+		data: countries,
+	} = useFetch("https://restcountries.com/v2/all");
 	return (
 		<BrowserRouter>
 			<ThemeProvider theme={theme ? themeLight : themeDark}>
@@ -44,8 +47,6 @@ function App() {
 										countries={
 											countries ? countries : "Not Ready"
 										}
-										url={url}
-										setURL={setURL}
 									/>
 								)
 							}
