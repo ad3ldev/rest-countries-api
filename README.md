@@ -56,4 +56,4 @@ A mobile version is still needed, some basic ui features like alignments of some
 
 ## Author
 
--   Website - [AbdelRahman Adel AbdelFattah](https://github.com/aadelafattah)
+-   Github - [AbdelRahman Adel AbdelFattah](https://github.com/aadelafattah)
