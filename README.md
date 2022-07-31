@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [https://github.com/ad3ldev/rest-countries-api](https://github.com/aadelafattah/rest-countries-api)
--   Live Site URL: [ad3ldev.github.io/rest-countries-api/)
+-   Solution URL: [https://github.com/ad3ldev/rest-countries-api]
+-   Live Site URL: [ad3ldev.github.io/rest-countries-api/]
 
 ## My process
 
